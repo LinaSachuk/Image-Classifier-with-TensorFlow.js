@@ -39,7 +39,7 @@ function doPrefiction() {
             model = _model;
             model.classify(img).then(predictions => {
                 console.log('Predictions: ');
-                console.log(predictions);
+                console.log(predictions["Properties"]);
                 showPrediction(predictions);
 
             });
