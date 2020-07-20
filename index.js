@@ -101,17 +101,30 @@ async function app() {
 
                     // rock : https://cdn0.iconfinder.com/data/icons/rock-paper-scissors-emoji/792/rock-paper-scissors-emoji-cartoon-016-512.png
                     // paper: https://pngimage.net/wp-content/uploads/2018/06/paper-cartoon-png-3.png
-                    // scissors: https://www.clipartmax.com/png/middle/151-1517270_scissors-cartoon-cartoon-rock-paper-scissors.png
+                    // scissors: https://img.favpng.com/12/25/0/scissors-cartoon-school-supplies-png-favpng-ugb2qf8tkQ3WCJjQF25czYGrn.jpg
 
                     console.log('game!');
                     var userChoice = document.getElementById('label').textContent;
                     console.log(userChoice);
-                    var user_url;
-                    var elem = document.createElement("img");
-                    elem.setAttribute("src", "https://cdn0.iconfinder.com/data/icons/rock-paper-scissors-emoji/792/rock-paper-scissors-emoji-cartoon-016-512.png");
-                    elem.setAttribute("width", "100%");
-                    elem.setAttribute("alt", "user choice img");
 
+
+
+
+                    // Creating a visual card choices for user and computer
+                    var user_url;
+                    var computer_url;
+                    var result;
+                    var user_elem = document.createElement("img");
+                    user_elem.setAttribute("width", "100%");
+                    user_elem.setAttribute("alt", "user choice img");
+
+                    var computer_elem = document.createElement("img");
+                    computer_elem.setAttribute("width", "100%");
+                    computer_elem.setAttribute("alt", "computer choice img");
+
+                    var result_elem = document.createElement("img");
+                    result_elem.setAttribute("width", "100%");
+                    result_elem.setAttribute("alt", "result img");
 
                     if (!userChoice) {
                         // User choice was undefined
@@ -120,31 +133,48 @@ async function app() {
                     } else {
                         // Display user choice
                         document.getElementById('player_choice').innerText = `Player: ${userChoice}`;
-                        if (userChoice) {
-                            document.getElementById("player_choice").appendChild(elem);
-                            elem.id = "url"
-                            document.getElementById("url").className = "img-fluid";
-
+                        if (userChoice.trim() == 'rock') {
+                            user_url = "https://cdn0.iconfinder.com/data/icons/rock-paper-scissors-emoji/792/rock-paper-scissors-emoji-cartoon-016-512.png"
                         }
+                        else if (userChoice.trim() == 'paper') {
+                            user_url = "https://pngimage.net/wp-content/uploads/2018/06/paper-cartoon-png-3.png"
+                        }
+                        else {
+                            user_url = "https://img.favpng.com/12/25/0/scissors-cartoon-school-supplies-png-favpng-ugb2qf8tkQ3WCJjQF25czYGrn.jpg"
+                        }
+
+                        user_elem.setAttribute("src", user_url);
+                        document.getElementById("player_choice").appendChild(user_elem);
+                        user_elem.id = "url"
+                        document.getElementById("url").className = "img-fluid";
+
                     }
+
 
                     // Computer choice
                     var computerChoice = Math.random();
                     if (computerChoice < 0.34) {
                         computerChoice = "rock";
+                        computer_url = "https://cdn0.iconfinder.com/data/icons/rock-paper-scissors-emoji/792/rock-paper-scissors-emoji-cartoon-016-512.png"
+
                     } else if (computerChoice <= 0.67) {
                         computerChoice = "paper";
+                        computer_url = "https://pngimage.net/wp-content/uploads/2018/06/paper-cartoon-png-3.png"
+
                     } else {
                         computerChoice = "scissors";
+                        computer_url = "https://img.favpng.com/12/25/0/scissors-cartoon-school-supplies-png-favpng-ugb2qf8tkQ3WCJjQF25czYGrn.jpg"
+
                     }
 
                     // Display computer choice
-                    document.getElementById('computer_choice').innerText = `
-                    Computer:  ${computerChoice}
-                     `;
+                    document.getElementById('computer_choice').innerText = `Computer:  ${computerChoice}`;
 
-                    // var computerChoice = document.getElementById('computer_choice').textContent;
                     console.log(computerChoice);
+                    computer_elem.setAttribute("src", computer_url);
+                    document.getElementById("computer_choice").appendChild(computer_elem);
+                    computer_elem.id = "url"
+                    document.getElementById("url").className = "img-fluid";
 
 
 
@@ -159,12 +189,29 @@ async function app() {
 
 
 
+                    win_url = "https://image.freepik.com/free-vector/you-win-sign-pop-art-style_175838-498.jpg";
+                    tie_url = "https://images.clipartlogo.com/files/istock/previews/8781/87818447-cartoon-tie.jpg";
+                    lose_url = "https://thebenefitsourcellc.com/wp-content/uploads/2018/02/Screen-Shot-2018-02-20-at-4.17.38-PM.png"
 
                     // Display results
                     console.log(result)
-                    document.getElementById('result').innerText = `
-                    Result:  ${result}
-                     `;
+
+                    if (result.trim() == "It's a tie!") {
+                        result_url = tie_url;
+                    }
+                    else if (result.trim() == "You win!") {
+                        result_url = win_url;
+                    }
+                    else {
+                        result_url = lose_url;
+                    }
+
+
+                    document.getElementById('result').innerText = `${result}`;
+                    result_elem.setAttribute("src", result_url);
+                    document.getElementById("result").appendChild(result_elem);
+                    result_elem.id = "url"
+                    document.getElementById("url").className = "img-fluid";
 
                 });
 
