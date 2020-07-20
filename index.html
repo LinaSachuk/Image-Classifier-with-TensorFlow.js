@@ -1,50 +1,39 @@
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>My Image Classifier</title>
-	<link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
 
-	<!-- Load the latest version of TensorFlow.js. This is required to use MobileNet. -->
-	<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"> </script>
+    <!-- Load the latest version of TensorFlow.js. This is required to use MobileNet. -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
 
-	<!-- Load the MobileNet model. -->
-	<script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/mobilenet"> </script>
-	
-	<!--  Add an import of KNN Classifier  -->
-	<script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/knn-classifier"></script>
+    <!-- Load the MobileNet model. -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/mobilenet"></script>
 
-	<!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <!--  Add an import of KNN Classifier  -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/knn-classifier"></script>
 
-	<!-- jQuery library -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    />
 
-	<!-- Popper JS -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-	<!-- Latest compiled JavaScript -->
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 
-</head>
-<body>
-<!-- Navigation -->
-	
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <!-- Navigation -->
 
-<div class="container-fluid pt-3">
-	
-<div class="row">
-	<div class="col-sm-4">.col-sm-4</div>
-	<div class="col-sm-8">.col-sm-8</div>
-  </div>
-
-
-
-
-
-
-	<div class="content">
-		<!-- Replace this with your image. Make sure CORS settings allow reading the image! -->
+    <!-- <div class="content"> -->
+    <!-- Replace this with your image. Make sure CORS settings allow reading the image!
 		<img id="img"  crossorigin="anonymous"></img>
 		<p id="prediction"></p>
 		<div class="form">
@@ -52,37 +41,106 @@
 			<button id="submit_button">Go!</button>
 
 		</div>
-	</div>  
+	</div>   -->
 
+    <nav class="navbar navbar-expand-sm bg-light navbar-light fixed-top">
+      <!-- Brand/logo -->
+      <a class="navbar-brand" href="#">
+        <img
+          src="https://cdn.clipart.email/576467521e4a4744205decd13c67a885_cartoon-rock-paper-scissors-clipart-free-transparent-clipart-_900-509.png"
+          alt="logo"
+          style="width: 5em;"
+        />
+      </a>
 
+      <!-- Links -->
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Train the Model</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Play the Game</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Contacts</a>
+        </li>
+      </ul>
+    </nav>
 
+    <div class="container-fluid mt-5">
+      <div class="row">
+        <div class="col-sm-4">.col-sm-4</div>
+        <div class="col-sm-8">.col-sm-8</div>
+      </div>
+      <p>
+        Four columns: 25% width on all screens, except for extra small (100%
+        width on screens less than <strong>576px</strong> wide)
+      </p>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-sm bg-success">1 of 4</div>
+          <div class="col-sm bg-warning">2 of 4</div>
+          <div class="col-sm bg-success">3 of 4</div>
+          <div class="col-sm bg-warning">4 of 4</div>
+        </div>
+      </div>
 
+      <!-- Media top -->
+      <div class="media">
+        <img
+          src="https://cdn.dribbble.com/users/1994564/screenshots/6796369/rps-logo_1x.jpg"
+        />
+        <img
+          src="https://cdn.clipart.email/576467521e4a4744205decd13c67a885_cartoon-rock-paper-scissors-clipart-free-transparent-clipart-_900-509.png"
+          class="align-self-start"
+          style="width: 100%;"
+        />
+      </div>
 
-	<!-- second part -->
-	<div id="label"></div>
-	<div id="confidences"></div>
+      <div class="row">
+        <div class="col-sm-4">.col-sm-4</div>
+        <div class="col-sm-8">.col-sm-8</div>
+      </div>
 
-	<div id="player_choice"></div>
-	<div id="computer_choice"></div>
-	<div id="result"></div>
+      <!-- second part -->
 
+      <div id="label"></div>
+      <div id="confidences"></div>
 
+      <div id="player_choice"></div>
+      <div id="computer_choice"></div>
+      <div id="result"></div>
 
-	<!-- Set up the webcam video element -->
-	<video autoplay playsinline muted id="webcam" width="224" height="224"></video>
+      <!-- Add 3 buttons -->
+      <button id="class-rock">Add rock</button>
+      <button id="class-paper">Add paper</button>
+      <button id="class-scissors">Add scissors</button>
+      <button id="train">Train</button>
+      <button id="play">Play</button>
 
-	<!-- Add 3 buttons -->
-	<button id="class-rock">Add rock</button>
-	<button id="class-paper">Add paper</button>
-	<button id="class-scissors">Add scissors</button>
-	<button id="train">Train</button>
-	<button id="play">Play</button>
+      <!-- Progress bar Green -->
+      <div class="progress">
+        <div
+          class="progress-bar-striped progress-bar-animated bg-success"
+          style="width: 20%;"
+        >
+          User
+        </div>
+      </div>
 
-	<!-- Load main.js and index.js after the content of the page  -->
-	<script src="main.js"></script>
-	<script src="index.js"></script>
-	<script src="game.js"></script>
-
-</div>
-</body>
+      <!-- Orange -->
+      <div class="progress">
+        <div
+          class="progress-bar-striped progress-bar-animated bg-warning"
+          style="width: 40%;"
+        >
+          Computer
+        </div>
+      </div>
+      <!-- Load main.js and index.js after the content of the page  -->
+      <script src="main.js"></script>
+      <script src="index.js"></script>
+      <script src="game.js"></script>
+    </div>
+  </body>
 </html>
