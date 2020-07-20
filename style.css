@@ -8,18 +8,14 @@ html {
   text-align: center;
 }
 
-#img {
-  max-width: 600px;
-  margin: 50px 0;
-}
-
 .form input {
-  height: 30px;
+  height: 3em;
 }
 
 .form button {
-  height: 30px;
+  height: 3em;
   padding: 0 10px;
+  margin: 1em 0;
   border: none;
   background: grey;
   color: white;
@@ -27,4 +23,8 @@ html {
 
 .main {
   margin-top: 5em;
+}
+
+#img {
+  width: 80%;
 }

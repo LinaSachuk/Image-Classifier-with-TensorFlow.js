@@ -32,16 +32,6 @@
   <body>
     <!-- Navigation -->
 
-    <!-- <div class="content"> -->
-    <!-- Replace this with your image. Make sure CORS settings allow reading the image!
-		<img id="img"  crossorigin="anonymous"></img>
-		<p id="prediction"></p>
-		<div class="form">
-			<input type="text" id="image_url">
-			<button id="submit_button">Go!</button>
-
-		</div>
-	</div>   -->
 
     <div class="container main">
       <nav class="navbar navbar-expand-sm bg-light navbar-light fixed-top">
@@ -143,6 +133,33 @@
               >here.</a
             >
           </p>
+          <p>
+            Try it yourself. Paste an URL address for an image with one of the
+            classes and see the prediction (for example paste this url and click <strong>Go!</strong> button : https://upload.wikimedia.org/wikipedia/commons/4/49/Koala_climbing_tree.jpg)
+		  </p>
+		  
+    <div class="content">
+		<div class="row">
+			<div class="col-sm-2"></div>
+			<div class="col-sm-8"><!--  Make sure CORS settings allow reading the image! -->
+				<img id="img"
+				 class="img-fluid"
+				 crossorigin="anonymous"></img>
+				<h4 id="prediction"></h4>
+				
+				<div class="form">
+					<input type="text" id="image_url">
+					<button id="submit_button">Go!</button>
+		
+				</div></div>
+			<div class="col-sm-2"></div>
+    
+	</div> 
+</div>
+
+
+
+<!-- Train your model -->
           <div class="row">
             <div class="col-sm-4">.col-sm-4</div>
 
