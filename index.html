@@ -143,8 +143,8 @@
 			<!-- Target -->
 			<input id="url_to_copy" value="https://upload.wikimedia.org/wikipedia/commons/4/49/Koala_climbing_tree.jpg">
 			<!-- Trigger -->
-			<button class="btn" data-clipboard-target="#url_to_copy">
-				<img src="https://clipboardjs.com/assets/images/clippy.svg"  id= "clipboard_logo"class="img-fluid" alt="Copy to clipboard">
+			<button id= "clipboard" class="clipboard btn" data-clipboard-target="#url_to_copy">
+				<img src="https://clipboardjs.com/assets/images/clippy.svg"  id= "clipboard_logo" alt="Copy to clipboard">
 			</button>
 			 paste it in the input field below and click <strong>Go!</strong> button.
 		  </p>
@@ -182,14 +182,19 @@
 			 
 <p>For example,  add Rock image by clicking <strong>Add Rock</strong> button, make  multiple images for each class. You can use your hands or real objects of rock, paper and scissors.
 	(Allow to use your camera!)</p>
+	<!-- Play the game -->
+<div class="play_game">
+	<p>Play the game against a computer.</p>
+	<p>Click the <strong>Play</strong> button. Show your choice to the camera. Computer will use random choice generator. See who wins. Play again!</p>
+
+</div>
           <div class="row">
-            <div class="col-sm-3"></div>
 
             <div class="col-sm-6">
 				<div id="label" class="text-center"></div>
 				<div id="confidences" class="text-center"></div>
 			  <video autoplay playsinline muted id="webcam"></video>
-			  <!-- Add 3 buttons -->
+			  <!-- Add 4 buttons -->
 			  <div class="add_buttons">
 				  <div class="row">
 					<div class="col">				<button id="class-rock" class="btn btn-outline-info">Add Rock</button>
@@ -198,23 +203,31 @@
 					</div>
 					<div class="col">				<button id="class-scissors" class="btn btn-outline-info">Add Scissors</button>
 					</div>
+					
 				  </div>
 
 			  </div>
-            </div>
-            <div class="col-sm-3"></div>
+			</div>
+			<div class="col-sm-6">
+				<div class="row">
+					<div class="col">				<button id="play" class="btn btn-outline-success">Play</button>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-3">1</div>
+					<div class="col-sm-3">2</div>
+					<div class="col-sm-3">3</div>
+
+				</div>
+			</div>
+		</div>
+
           </div>
     </div>
     
 
 
-<!-- Play the game -->
-<div class="play_game container-fluid">
-	<h2 class="text-center">Play the Game against a Computer</h2>
-	<p>Click the <strong>Play</strong> button. Show your choice to the camera. Computer will use random choice generator. See who wins. Play again!</p>
-	<button id="play" class="btn btn-primary">Play</button>
 
-</div>
 
 
 

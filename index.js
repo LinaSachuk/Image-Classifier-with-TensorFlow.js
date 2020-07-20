@@ -1,6 +1,6 @@
 let net;
-new ClipboardJS('.btn');
-var clipboard = new ClipboardJS('.btn');
+
+var clipboard = new ClipboardJS('.clipboard');
 
 clipboard.on('success', function (e) {
     console.info('Action:', e.action);

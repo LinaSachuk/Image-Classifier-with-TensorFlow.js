@@ -21,8 +21,8 @@ html {
   color: white;
 }
 
-.btn {
-  margin: 1em;
+.add_buttons button {
+  margin: 1em 0;
 }
 
 .main {
@@ -37,8 +37,12 @@ html {
   width: 80%;
 }
 
+#clipboard {
+  width: 6%;
+}
+
 #clipboard_logo {
-  width: 1.5em;
+  width: 100%;
 }
 
 #webcam {
