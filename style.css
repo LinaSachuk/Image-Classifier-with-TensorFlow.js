@@ -24,3 +24,7 @@ html {
   background: grey;
   color: white;
 }
+
+.main {
+  margin-top: 5em;
+}

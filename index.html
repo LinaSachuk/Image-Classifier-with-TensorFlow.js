@@ -43,53 +43,119 @@
 		</div>
 	</div>   -->
 
-    <nav class="navbar navbar-expand-sm bg-light navbar-light fixed-top">
-      <!-- Brand/logo -->
-      <a class="navbar-brand" href="#">
-        <img
-          src="https://cdn.clipart.email/576467521e4a4744205decd13c67a885_cartoon-rock-paper-scissors-clipart-free-transparent-clipart-_900-509.png"
-          alt="logo"
-          style="width: 5em;"
-        />
-      </a>
+    <div class="container main">
+      <nav class="navbar navbar-expand-sm bg-light navbar-light fixed-top">
+        <!-- Brand/logo -->
+        <a class="navbar-brand" href="#">
+          <img
+            src="https://cdn.clipart.email/576467521e4a4744205decd13c67a885_cartoon-rock-paper-scissors-clipart-free-transparent-clipart-_900-509.png"
+            class="rounded"
+            alt="logo"
+            style="width: 5em;"
+          />
+        </a>
 
-      <!-- Links -->
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" href="#">Train the Model</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Play the Game</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Contacts</a>
-        </li>
-      </ul>
-    </nav>
+        <!-- Links -->
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Train the Model</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Play the Game</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contacts</a>
+          </li>
+        </ul>
+      </nav>
 
-    <div class="container-fluid mt-5">
-      <div class="row">
-        <div class="col-sm-4">.col-sm-4</div>
-        <div class="col-sm-8">.col-sm-8</div>
+      <div class="jumbotron text-center">
+        <h1 class="text-center">Rock Paper Scissors</h1>
+        <h6>Machine Learning and Gaming</h6>
       </div>
-      <p>
-        Four columns: 25% width on all screens, except for extra small (100%
-        width on screens less than <strong>576px</strong> wide)
-      </p>
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-sm bg-success">1 of 4</div>
-          <div class="col-sm bg-warning">2 of 4</div>
-          <div class="col-sm bg-success">3 of 4</div>
-          <div class="col-sm bg-warning">4 of 4</div>
+
+      <!-- about the game -->
+      <div class="about">
+        <h2 class="text-center">About the Game</h2>
+        <!-- Four columns: 25% width on all screens, except for extra small (100%
+        width on screens less than <strong>576px</strong> wide) -->
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-sm">
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Rock-paper-scissors.svg/1280px-Rock-paper-scissors.svg.png"
+                class="img-fluid"
+              />
+            </div>
+            <div class="col-sm">
+              <p>
+                Rock paper scissors (also known by other permutations such as
+                scissors paper rock, scissors paper stone or ro-sham-bo) is a
+                hand game usually played between two people, in which each
+                player simultaneously forms one of three shapes with an
+                outstretched hand.
+              </p>
+              <p>
+                These shapes are "rock" (a closed fist), "paper" (a flat hand),
+                and "scissors" (a fist with the index finger and middle finger
+                extended, forming a V). "Scissors" is identical to the
+                two-fingered V sign (also indicating "victory" or "peace")
+                except that it is pointed horizontally instead of being held
+                upright in the air.
+              </p>
+              <p>
+                A simultaneous, zero-sum game, it has only two possible
+                outcomes: a draw, or a win for one player and a loss for the
+                other. Rock paper scissors is often used as a fair choosing
+                method between two people, similar to coin flipping, drawing
+                straws, or throwing dice in order to settle a dispute or make an
+                unbiased group decision. More info about the game
+
+                <a
+                  href="https://en.wikipedia.org/wiki/Rock_paper_scissors"
+                  target="_blank"
+                  >here.</a
+                >
+              </p>
+            </div>
+            <!-- <div class="col-sm bg-success">3 of 4</div>
+          <div class="col-sm bg-warning">4 of 4</div> -->
+          </div>
+        </div>
+      </div>
+
+      <!-- training the model -->
+      <div class="train">
+        <div class="container-fluid">
+          <h2 class="text-center">Machine Learning with TensorFlow.js</h2>
+          <p>
+            This TensorFlow.js model does not require you to know about machine
+            learning. It can take as input any browser-based image elements and
+            returns an array of most likely predictions and their confidences.
+          </p>
+          <p>
+            Let's first take a look at an off-the-shelf MobileNet, a model that
+            is trained on ImageNet a dataset of millions of images with labels
+            for 1000 different classes of objects, like dogs, cats, and fruits.
+            The pre-trained models are trained to recognize 1000 classes of
+            image. For a full list of classes
+            <a href="labels_mobilenet_quant_v1_224.html" target="_blank"
+              >here.</a
+            >
+          </p>
+          <div class="row">
+            <div class="col-sm-4">.col-sm-4</div>
+
+            <div class="col-sm-4">
+              <video autoplay playsinline muted id="webcam"></video>
+            </div>
+            <div class="col-sm-4">.col-sm-4</div>
+          </div>
         </div>
       </div>
 
       <!-- Media top -->
       <div class="media">
-        <img
-          src="https://cdn.dribbble.com/users/1994564/screenshots/6796369/rps-logo_1x.jpg"
-        />
         <img
           src="https://cdn.clipart.email/576467521e4a4744205decd13c67a885_cartoon-rock-paper-scissors-clipart-free-transparent-clipart-_900-509.png"
           class="align-self-start"
@@ -141,6 +207,9 @@
       <script src="main.js"></script>
       <script src="index.js"></script>
       <script src="game.js"></script>
+    </div>
+    <div class="jumbotron text-center" style="margin-bottom: 0;">
+      <p>Footer</p>
     </div>
   </body>
 </html>
