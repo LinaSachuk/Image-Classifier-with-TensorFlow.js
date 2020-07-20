@@ -21,6 +21,10 @@ html {
   color: white;
 }
 
+.btn {
+  margin: 1em;
+}
+
 .main {
   margin-top: 5em;
 }
@@ -35,4 +39,8 @@ html {
 
 #webcam {
   width: 100%;
+}
+
+#label {
+  text-transform: capitalize;
 }

@@ -27,3 +27,6 @@ The pretraining is so effective that we don't have to have to do anything fancy 
 By bootstrapping our model with MobileNet and using kk nearest neighbors, we can train a realistic classifier in a short amount of time, with very little data, all in the browser. Doing this fully end-to-end, from pixels to prediction, would require too much time and data for an interactive application.
 
 https://codelabs.developers.google.com/codelabs/tensorflowjs-teachablemachine-codelab/index.html#2
+
+4. A modern approach to copy text to clipboard
+   https://clipboardjs.com/

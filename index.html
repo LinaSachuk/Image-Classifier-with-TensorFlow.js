@@ -179,13 +179,28 @@
 			Transfer Learning technique starts with an already trained model and specializes it for the task at hand. This lets you train far more quickly and with less data than if you were to train from scratch.
 			
 			You can use a technique known as transfer learning to re-train a model to recognize classes not in the original set. For example, you could re-train the model to distinguish between Rock, Paper and Scissors. To do this, you will need a set of training images for each of the new labels you wish to train.</p>
-
-
+			 
+<p>For example,  add Rock image by clicking <strong>Add Rock</strong> button, make  multiple images for each class. You can use your hands or real objects of rock, paper and scissors.
+	(Allow to use your camera!)</p>
           <div class="row">
             <div class="col-sm-3"></div>
 
             <div class="col-sm-6">
-              <video autoplay playsinline muted id="webcam"></video>
+				<div id="label" class="text-center"></div>
+				<div id="confidences" class="text-center"></div>
+			  <video autoplay playsinline muted id="webcam"></video>
+			  <!-- Add 3 buttons -->
+			  <div class="add_buttons">
+				  <div class="row">
+					<div class="col">				<button id="class-rock" class="btn btn-outline-info">Add Rock</button>
+					</div>
+					<div class="col">				<button id="class-paper" class="btn btn-outline-info">Add Paper</button>
+					</div>
+					<div class="col">				<button id="class-scissors" class="btn btn-outline-info">Add Scissors</button>
+					</div>
+				  </div>
+
+			  </div>
             </div>
             <div class="col-sm-3"></div>
           </div>
@@ -197,28 +212,23 @@
 
       <!-- Media top -->
       <div class="media">
-        <img
+        <!-- <img
           src="https://cdn.clipart.email/576467521e4a4744205decd13c67a885_cartoon-rock-paper-scissors-clipart-free-transparent-clipart-_900-509.png"
           class="align-self-start"
           style="width: 100%;"
-        />
+        /> -->
       </div>
 
       
       <!-- second part -->
 
-      <div id="label"></div>
-      <div id="confidences"></div>
+     
 
       <div id="player_choice"></div>
       <div id="computer_choice"></div>
       <div id="result"></div>
 
-      <!-- Add 3 buttons -->
-      <button id="class-rock">Add rock</button>
-      <button id="class-paper">Add paper</button>
-      <button id="class-scissors">Add scissors</button>
-      <button id="train">Train</button>
+      
       <button id="play">Play</button>
 
       <!-- Progress bar Green -->
