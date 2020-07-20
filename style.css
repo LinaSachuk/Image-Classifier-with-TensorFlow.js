@@ -57,6 +57,8 @@ html {
   text-transform: capitalize;
 }
 
-#invisible {
-  display: none;
+.choice {
+  margin: 25% 0;
+  border: 2px solid lightsteelblue;
+  background-color: white;
 }

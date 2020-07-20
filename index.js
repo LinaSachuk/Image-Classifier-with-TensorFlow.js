@@ -25,10 +25,8 @@ const classifier = knnClassifier.create();
 
 async function app() {
 
- // hide  game
- var x = document.getElementById('invisible');
- x.style.display = "none";
-    
+
+
 
 
 
@@ -98,12 +96,6 @@ async function app() {
                     document.getElementById('result').innerText = ``;
 
 
-                    // display game 
-                    var x = document.getElementById('invisible');
-                    if (x.style.display == "none") {
-                        x.style.display = "block";
-                        console.log('hereeeeee')
-                    } 
 
 
 
@@ -114,6 +106,12 @@ async function app() {
                     console.log('game!');
                     var userChoice = document.getElementById('label').textContent;
                     console.log(userChoice);
+                    var user_url;
+                    var elem = document.createElement("img");
+                    elem.setAttribute("src", "https://cdn0.iconfinder.com/data/icons/rock-paper-scissors-emoji/792/rock-paper-scissors-emoji-cartoon-016-512.png");
+                    elem.setAttribute("width", "100%");
+                    elem.setAttribute("alt", "user choice img");
+
 
                     if (!userChoice) {
                         // User choice was undefined
@@ -122,7 +120,12 @@ async function app() {
                     } else {
                         // Display user choice
                         document.getElementById('player_choice').innerText = `Player: ${userChoice}`;
+                        if (userChoice) {
+                            document.getElementById("player_choice").appendChild(elem);
+                            elem.id = "url"
+                            document.getElementById("url").className = "img-fluid";
 
+                        }
                     }
 
                     // Computer choice
