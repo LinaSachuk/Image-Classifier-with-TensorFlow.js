@@ -14,7 +14,7 @@ html {
 
 .form button {
   height: 3em;
-  padding: 0 10px;
+  padding: 0 1em;
   margin: 1em 0;
   border: none;
   background: grey;
@@ -27,4 +27,12 @@ html {
 
 #img {
   width: 80%;
+}
+
+#clipboard_logo {
+  width: 1.5em;
+}
+
+#webcam {
+  width: 100%;
 }

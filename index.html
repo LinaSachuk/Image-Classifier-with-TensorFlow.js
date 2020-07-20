@@ -28,7 +28,10 @@
 
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-  </head>
+ 
+	<!-- To copy text to clipboard -->
+	<script src="dist/clipboard.min.js"></script>
+</head>
   <body>
     <!-- Navigation -->
 
@@ -61,7 +64,7 @@
 
       <div class="jumbotron text-center">
         <h1 class="text-center">Rock Paper Scissors</h1>
-        <h6>Machine Learning and Gaming</h6>
+        <h6>Machine Learning with TensorFlow.js</h6>
       </div>
 
       <!-- about the game -->
@@ -114,10 +117,9 @@
         </div>
       </div>
 
-      <!-- training the model -->
-      <div class="train">
-        <div class="container-fluid">
-          <h2 class="text-center">Machine Learning with TensorFlow.js</h2>
+      <!-- recognize image -->
+        <div class="recognize_image container-fluid">
+          <h2 class="text-center">Image Classifier with MobileNet</h2>
           <p>
             This TensorFlow.js model does not require you to know about machine
             learning. It can take as input any browser-based image elements and
@@ -135,7 +137,16 @@
           </p>
           <p>
             Try it yourself. Paste an URL address for an image with one of the
-            classes and see the prediction (for example paste this url and click <strong>Go!</strong> button : https://upload.wikimedia.org/wikipedia/commons/4/49/Koala_climbing_tree.jpg)
+			classes and see the prediction. Try as many images as you like.
+		</p> 
+			<p>For example, copy this URL 
+			<!-- Target -->
+			<input id="url_to_copy" value="https://upload.wikimedia.org/wikipedia/commons/4/49/Koala_climbing_tree.jpg">
+			<!-- Trigger -->
+			<button class="btn" data-clipboard-target="#url_to_copy">
+				<img src="https://clipboardjs.com/assets/images/clippy.svg"  id= "clipboard_logo"class="img-fluid" alt="Copy to clipboard">
+			</button>
+			 paste it in the input field below and click <strong>Go!</strong> button.
 		  </p>
 		  
     <div class="content">
@@ -148,7 +159,8 @@
 				<h4 id="prediction"></h4>
 				
 				<div class="form">
-					<input type="text" id="image_url">
+					
+					<input type="text" id="image_url" placeholder="Image URL">
 					<button id="submit_button">Go!</button>
 		
 				</div></div>
@@ -156,20 +168,32 @@
     
 	</div> 
 </div>
+</div>
 
 
 
-<!-- Train your model -->
+	<!-- Train your model -->
+	<div class="train_model container-fluid">
+		<h2 class="text-center">Transfer Learning Technique</h2>
+		<p>
+			Transfer Learning technique starts with an already trained model and specializes it for the task at hand. This lets you train far more quickly and with less data than if you were to train from scratch.
+			
+			You can use a technique known as transfer learning to re-train a model to recognize classes not in the original set. For example, you could re-train the model to distinguish between Rock, Paper and Scissors. To do this, you will need a set of training images for each of the new labels you wish to train.</p>
+
+
           <div class="row">
-            <div class="col-sm-4">.col-sm-4</div>
+            <div class="col-sm-3"></div>
 
-            <div class="col-sm-4">
+            <div class="col-sm-6">
               <video autoplay playsinline muted id="webcam"></video>
             </div>
-            <div class="col-sm-4">.col-sm-4</div>
+            <div class="col-sm-3"></div>
           </div>
-        </div>
-      </div>
+    </div>
+    
+
+
+
 
       <!-- Media top -->
       <div class="media">
@@ -180,11 +204,7 @@
         />
       </div>
 
-      <div class="row">
-        <div class="col-sm-4">.col-sm-4</div>
-        <div class="col-sm-8">.col-sm-8</div>
-      </div>
-
+      
       <!-- second part -->
 
       <div id="label"></div>
