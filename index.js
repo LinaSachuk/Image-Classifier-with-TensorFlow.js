@@ -1,5 +1,5 @@
 let net;
-
+// Clipboard
 var clipboard = new ClipboardJS('.clipboard');
 
 clipboard.on('success', function (e) {
@@ -16,10 +16,19 @@ clipboard.on('error', function (e) {
 });
 
 
+
+
+
+
 const webcamElement = document.getElementById('webcam');
 const classifier = knnClassifier.create();
 
 async function app() {
+
+ // hide  game
+ var x = document.getElementById('invisible');
+ x.style.display = "none";
+    
 
 
 
@@ -87,6 +96,16 @@ async function app() {
                     document.getElementById('player_choice').innerText = ``;
                     document.getElementById('computer_choice').innerText = ``;
                     document.getElementById('result').innerText = ``;
+
+
+                    // display game 
+                    var x = document.getElementById('invisible');
+                    if (x.style.display == "none") {
+                        x.style.display = "block";
+                        console.log('hereeeeee')
+                    } 
+
+
 
                     // rock : https://cdn0.iconfinder.com/data/icons/rock-paper-scissors-emoji/792/rock-paper-scissors-emoji-cartoon-016-512.png
                     // paper: https://pngimage.net/wp-content/uploads/2018/06/paper-cartoon-png-3.png

@@ -12,6 +12,10 @@ html {
   height: 3em;
 }
 
+.btn {
+  width: 100%;
+}
+
 .form button {
   height: 3em;
   padding: 0 1em;
@@ -51,4 +55,8 @@ html {
 
 #label {
   text-transform: capitalize;
+}
+
+#invisible {
+  display: none;
 }
