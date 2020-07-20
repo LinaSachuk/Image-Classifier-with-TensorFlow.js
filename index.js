@@ -101,19 +101,7 @@ async function app() {
                     console.log(computerChoice);
 
 
-                    function compare(choice1, choice2) {
-                        console.log('inside!');
-                        console.log('==================');
-                        console.log(choice1, choice2);
-                        console.log(choice1 == choice2);
 
-                        console.log(typeof 'choice1');
-                        console.log(typeof 'choice2');
-                        var n = true;
-                        console.log('==================');
-
-                        return n;
-                    };
 
 
                     // Run the compare function
@@ -128,7 +116,9 @@ async function app() {
 
                     // Display results
                     console.log(result)
-                    // document.write("<p>Result:" + result + "</p>");
+                    document.getElementById('result').innerText = `
+                    Result:  ${result}
+                     `;
 
                 });
 

@@ -25,43 +25,43 @@
 // document.write("<p>Computer:" + " " + computerChoice + "</p>");
 
 // Compare user choice vs computer choice
-// var compare = function (choice1, choice2) {
-//     console.log('inside!');
-//     console.log('==================');
-//     console.log(choice1, choice2);
-//     console.log('==================');
+var compare = function (choice1, choice2) {
+    console.log('inside!');
+    console.log('==================');
+    console.log(choice1, choice2);
+    console.log('==================');
 
-//     if (choice1 === choice2) {
-//         return "It's a tie!";
-//     }
-//     if (choice1 === "rock") {
-//         if (choice2 === "scissors") {
-//             // rock wins
-//             return "You win!";
-//         } else {
-//             // paper wins
-//             return "You lose! Try again.";
-//         }
-//     }
-//     if (choice1 === "paper") {
-//         if (choice2 === "rock") {
-//             // paper wins
-//             return "You win!";
-//         } else {
-//             // scissors wins
-//             return "You lose! Try again.";
-//         }
-//     }
-//     if (choice1 === "scissors") {
-//         if (choice2 === "rock") {
-//             // rock wins
-//             return "You lose! Try again.";
-//         } else {
-//             // scissors wins
-//             return "You win!";
-//         }
-//     }
-// };
+    if (choice1 === choice2) {
+        return "It's a tie!";
+    }
+    if (choice1 === "rock") {
+        if (choice2 === "scissors") {
+            // rock wins
+            return "You win!";
+        } else {
+            // paper wins
+            return "You lose! Try again.";
+        }
+    }
+    if (choice1 === "paper") {
+        if (choice2 === "rock") {
+            // paper wins
+            return "You win!";
+        } else {
+            // scissors wins
+            return "You lose! Try again.";
+        }
+    }
+    if (choice1 === "scissors") {
+        if (choice2 === "rock") {
+            // rock wins
+            return "You lose! Try again.";
+        } else {
+            // scissors wins
+            return "You win!";
+        }
+    }
+};
 // // Run the compare function
 // var results = compare(userChoice, computerChoice);
 
