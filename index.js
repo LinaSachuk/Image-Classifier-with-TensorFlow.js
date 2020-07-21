@@ -144,6 +144,8 @@ async function app() {
                         }
 
                         user_elem.setAttribute("src", user_url);
+                        document.getElementById("player_choice").className = "text-center";
+
                         document.getElementById("player_choice").appendChild(user_elem);
                         user_elem.id = "url"
                         document.getElementById("url").className = "img-fluid";
@@ -169,6 +171,7 @@ async function app() {
 
                     // Display computer choice
                     document.getElementById('computer_choice').innerText = `Computer:  ${computerChoice}`;
+                    document.getElementById("computer_choice").className = "text-center";
 
                     console.log(computerChoice);
                     computer_elem.setAttribute("src", computer_url);
@@ -190,7 +193,7 @@ async function app() {
 
 
                     win_url = "https://image.freepik.com/free-vector/you-win-sign-pop-art-style_175838-498.jpg";
-                    tie_url = "https://images.clipartlogo.com/files/istock/previews/8781/87818447-cartoon-tie.jpg";
+                    tie_url = "https://cdn.clipart.email/066e8356ab66bb4dfae7e02363e6c292_bow-tie-clipart-at-getdrawingscom-free-for-personal-use-bow-tie-_600-600.jpeg";
                     lose_url = "https://thebenefitsourcellc.com/wp-content/uploads/2018/02/Screen-Shot-2018-02-20-at-4.17.38-PM.png"
 
                     // Display results
@@ -208,6 +211,7 @@ async function app() {
 
 
                     document.getElementById('result').innerText = `${result}`;
+                    document.getElementById("result").className = "text-center";
                     result_elem.setAttribute("src", result_url);
                     document.getElementById("result").appendChild(result_elem);
                     result_elem.id = "url"
