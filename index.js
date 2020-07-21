@@ -1,4 +1,12 @@
 let net;
+var user_counter = 0;
+var computer_counter = 0;
+
+
+
+
+
+
 // Clipboard
 var clipboard = new ClipboardJS('.clipboard');
 
@@ -95,13 +103,23 @@ async function app() {
                     document.getElementById('computer_choice').innerText = ``;
                     document.getElementById('result').innerText = ``;
 
+                    if (document.getElementById('user_url')) {
+                        document.getElementById('user_url').remove();
+                    }
+                    if (document.getElementById('computer_url')) {
+                        document.getElementById('computer_url').remove();
+                    }
+                    if (document.getElementById('result_url')) {
+                        document.getElementById('result_url').remove();
+                    }
+
 
 
 
 
                     // rock : https://cdn0.iconfinder.com/data/icons/rock-paper-scissors-emoji/792/rock-paper-scissors-emoji-cartoon-016-512.png
                     // paper: https://pngimage.net/wp-content/uploads/2018/06/paper-cartoon-png-3.png
-                    // scissors: https://img.favpng.com/12/25/0/scissors-cartoon-school-supplies-png-favpng-ugb2qf8tkQ3WCJjQF25czYGrn.jpg
+                    // scissors: https://www.wpclipart.com/education/supplies/scissors/round-tip_scissors_red.png
 
                     console.log('game!');
                     var userChoice = document.getElementById('label').textContent;
@@ -140,15 +158,15 @@ async function app() {
                             user_url = "https://pngimage.net/wp-content/uploads/2018/06/paper-cartoon-png-3.png"
                         }
                         else {
-                            user_url = "https://img.favpng.com/12/25/0/scissors-cartoon-school-supplies-png-favpng-ugb2qf8tkQ3WCJjQF25czYGrn.jpg"
+                            user_url = "https://www.wpclipart.com/education/supplies/scissors/round-tip_scissors_red.png"
                         }
 
                         user_elem.setAttribute("src", user_url);
                         document.getElementById("player_choice").className = "text-center";
 
                         document.getElementById("player_choice").appendChild(user_elem);
-                        user_elem.id = "url"
-                        document.getElementById("url").className = "img-fluid";
+                        user_elem.id = "user_url"
+                        document.getElementById("user_url").className = "img-fluid";
 
                     }
 
@@ -165,7 +183,7 @@ async function app() {
 
                     } else {
                         computerChoice = "scissors";
-                        computer_url = "https://img.favpng.com/12/25/0/scissors-cartoon-school-supplies-png-favpng-ugb2qf8tkQ3WCJjQF25czYGrn.jpg"
+                        computer_url = "https://www.wpclipart.com/education/supplies/scissors/round-tip_scissors_red.png"
 
                     }
 
@@ -173,11 +191,11 @@ async function app() {
                     document.getElementById('computer_choice').innerText = `Computer:  ${computerChoice}`;
                     document.getElementById("computer_choice").className = "text-center";
 
-                    console.log(computerChoice);
+                    // console.log(computerChoice);
                     computer_elem.setAttribute("src", computer_url);
                     document.getElementById("computer_choice").appendChild(computer_elem);
-                    computer_elem.id = "url"
-                    document.getElementById("url").className = "img-fluid";
+                    computer_elem.id = "computer_url"
+                    document.getElementById("computer_url").className = "img-fluid";
 
 
 
@@ -197,16 +215,19 @@ async function app() {
                     lose_url = "https://thebenefitsourcellc.com/wp-content/uploads/2018/02/Screen-Shot-2018-02-20-at-4.17.38-PM.png"
 
                     // Display results
-                    console.log(result)
+                    console.log(result);
 
                     if (result.trim() == "It's a tie!") {
                         result_url = tie_url;
+
                     }
                     else if (result.trim() == "You win!") {
                         result_url = win_url;
+                        user_counter += 1;
                     }
                     else {
                         result_url = lose_url;
+                        computer_counter += 1;
                     }
 
 
@@ -214,13 +235,19 @@ async function app() {
                     document.getElementById("result").className = "text-center";
                     result_elem.setAttribute("src", result_url);
                     document.getElementById("result").appendChild(result_elem);
-                    result_elem.id = "url"
-                    document.getElementById("url").className = "img-fluid";
+                    result_elem.id = "result_url"
+                    document.getElementById("result_url").className = "img-fluid";
+                    console.log(user_counter, computer_counter);
+
+
+                    return;
+
 
                 });
 
             // Dispose the tensor to release the memory.
             img.dispose();
+            return;
         }
 
 

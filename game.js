@@ -26,7 +26,7 @@
 
 // Compare user choice vs computer choice
 var compare = function (choice1, choice2) {
-    console.log('inside!');
+    
     console.log('==================');
     console.log(choice1, choice2);
     console.log('==================');
