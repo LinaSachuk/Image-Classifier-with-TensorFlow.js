@@ -1,6 +1,7 @@
 let net;
 var user_counter = 0;
 var computer_counter = 0;
+// const app = require('express')();
 
 
 
@@ -32,12 +33,6 @@ const webcamElement = document.getElementById('webcam');
 const classifier = knnClassifier.create();
 
 async function app() {
-
-
-
-
-
-
     console.log('Loading mobilenet..');
 
     // Load the model.
@@ -71,10 +66,7 @@ async function app() {
     document.getElementById('class-scissors').addEventListener('click', () => addExample(2));
 
 
-
-
-
-    // console.log('training');
+    console.log('training');
     while (true) {
         if (classifier.getNumClasses() > 0) {
             const img = await webcam.capture();
@@ -87,184 +79,178 @@ async function app() {
 
             const classes = ['rock', 'paper', 'scissors'];
             document.getElementById('label').innerText = `
-              ${classes[result.label]}
-            `;
-
-
+              ${classes[result.label]}`;
 
             document.getElementById('confidences').innerText = `
-              probability: ${result.confidences[result.label]}
-            `;
-
-            document.getElementById('play').addEventListener('click',
-                function () {
-                    // delete last results
-                    document.getElementById('player_choice').innerText = ``;
-                    document.getElementById('computer_choice').innerText = ``;
-                    document.getElementById('result').innerText = ``;
-
-                    if (document.getElementById('user_url')) {
-                        document.getElementById('user_url').remove();
-                    }
-                    if (document.getElementById('computer_url')) {
-                        document.getElementById('computer_url').remove();
-                    }
-                    if (document.getElementById('result_url')) {
-                        document.getElementById('result_url').remove();
-                    }
+            probability: ${result.confidences[result.label]}`;
 
 
-
-
-
-                    // rock : https://cdn0.iconfinder.com/data/icons/rock-paper-scissors-emoji/792/rock-paper-scissors-emoji-cartoon-016-512.png
-                    // paper: https://pngimage.net/wp-content/uploads/2018/06/paper-cartoon-png-3.png
-                    // scissors: https://www.wpclipart.com/education/supplies/scissors/round-tip_scissors_red.png
-
-                    console.log('game!');
-                    var userChoice = document.getElementById('label').textContent;
-                    console.log(userChoice);
-
-
-
-
-                    // Creating a visual card choices for user and computer
-                    var user_url;
-                    var computer_url;
-                    var result;
-                    var user_elem = document.createElement("img");
-                    user_elem.setAttribute("width", "100%");
-                    user_elem.setAttribute("alt", "user choice img");
-
-                    var computer_elem = document.createElement("img");
-                    computer_elem.setAttribute("width", "100%");
-                    computer_elem.setAttribute("alt", "computer choice img");
-
-                    var result_elem = document.createElement("img");
-                    result_elem.setAttribute("width", "100%");
-                    result_elem.setAttribute("alt", "result img");
-
-                    if (!userChoice) {
-                        // User choice was undefined
-                        document.getElementById('player_choice').innerText = `Player, you cheated! Refresh this screen and fight like a man.`;
-
-                    } else {
-                        // Display user choice
-                        document.getElementById('player_choice').innerText = `Player: ${userChoice}`;
-                        if (userChoice.trim() == 'rock') {
-                            user_url = "https://cdn0.iconfinder.com/data/icons/rock-paper-scissors-emoji/792/rock-paper-scissors-emoji-cartoon-016-512.png"
-                        }
-                        else if (userChoice.trim() == 'paper') {
-                            user_url = "https://pngimage.net/wp-content/uploads/2018/06/paper-cartoon-png-3.png"
-                        }
-                        else {
-                            user_url = "https://www.wpclipart.com/education/supplies/scissors/round-tip_scissors_red.png"
-                        }
-
-                        user_elem.setAttribute("src", user_url);
-                        document.getElementById("player_choice").className = "text-center";
-
-                        document.getElementById("player_choice").appendChild(user_elem);
-                        user_elem.id = "user_url"
-                        document.getElementById("user_url").className = "img-fluid";
-
-                    }
-
-
-                    // Computer choice
-                    var computerChoice = Math.random();
-                    if (computerChoice < 0.34) {
-                        computerChoice = "rock";
-                        computer_url = "https://cdn0.iconfinder.com/data/icons/rock-paper-scissors-emoji/792/rock-paper-scissors-emoji-cartoon-016-512.png"
-
-                    } else if (computerChoice <= 0.67) {
-                        computerChoice = "paper";
-                        computer_url = "https://pngimage.net/wp-content/uploads/2018/06/paper-cartoon-png-3.png"
-
-                    } else {
-                        computerChoice = "scissors";
-                        computer_url = "https://www.wpclipart.com/education/supplies/scissors/round-tip_scissors_red.png"
-
-                    }
-
-                    // Display computer choice
-                    document.getElementById('computer_choice').innerText = `Computer:  ${computerChoice}`;
-                    document.getElementById("computer_choice").className = "text-center";
-
-                    // console.log(computerChoice);
-                    computer_elem.setAttribute("src", computer_url);
-                    document.getElementById("computer_choice").appendChild(computer_elem);
-                    computer_elem.id = "computer_url"
-                    document.getElementById("computer_url").className = "img-fluid";
-
-
-
-
-
-                    // Run the compare function
-                    var a = userChoice.trim();
-                    var b = computerChoice.trim();
-                    var result = compare(a, b);
-
-
-
-
-
-                    win_url = "https://image.freepik.com/free-vector/you-win-sign-pop-art-style_175838-498.jpg";
-                    tie_url = "https://cdn.clipart.email/066e8356ab66bb4dfae7e02363e6c292_bow-tie-clipart-at-getdrawingscom-free-for-personal-use-bow-tie-_600-600.jpeg";
-                    lose_url = "https://thebenefitsourcellc.com/wp-content/uploads/2018/02/Screen-Shot-2018-02-20-at-4.17.38-PM.png"
-
-                    // Display results
-                    console.log(result);
-
-                    if (result.trim() == "It's a tie!") {
-                        result_url = tie_url;
-
-                    }
-                    else if (result.trim() == "You win!") {
-                        result_url = win_url;
-                        user_counter += 1;
-                    }
-                    else {
-                        result_url = lose_url;
-                        computer_counter += 1;
-                    }
-
-
-                    document.getElementById('result').innerText = `${result}`;
-                    document.getElementById("result").className = "text-center";
-                    result_elem.setAttribute("src", result_url);
-                    document.getElementById("result").appendChild(result_elem);
-                    result_elem.id = "result_url"
-                    document.getElementById("result_url").className = "img-fluid";
-                    console.log(user_counter, computer_counter);
-
-
-                    return;
-
-
-                });
 
             // Dispose the tensor to release the memory.
             img.dispose();
-            return;
+
         }
 
-
         await tf.nextFrame();
-
-
-
-
-
-
-
     }
+
 
 }
 
 
+document.getElementById('train').addEventListener('click',
+    function () {
+
+        app();
+    }
+);
 
 
 
-app();
+
+// waiting for the Play click
+document.getElementById('play').addEventListener('click',
+    function () {
+        // delete last results
+        document.getElementById('player_choice').innerText = ``;
+        document.getElementById('computer_choice').innerText = ``;
+        document.getElementById('result').innerText = ``;
+
+        if (document.getElementById('user_url')) {
+            document.getElementById('user_url').remove();
+        }
+        if (document.getElementById('computer_url')) {
+            document.getElementById('computer_url').remove();
+        }
+        if (document.getElementById('result_url')) {
+            document.getElementById('result_url').remove();
+        }
+
+
+        // rock : https://cdn0.iconfinder.com/data/icons/rock-paper-scissors-emoji/792/rock-paper-scissors-emoji-cartoon-016-512.png
+        // paper: https://pngimage.net/wp-content/uploads/2018/06/paper-cartoon-png-3.png
+        // scissors: https://www.wpclipart.com/education/supplies/scissors/round-tip_scissors_red.png
+
+        console.log('game!');
+        var userChoice = document.getElementById('label').textContent;
+        console.log(userChoice);
+
+
+
+
+        // Creating a visual card choices for user and computer
+        var user_url;
+        var computer_url;
+        var result;
+        var user_elem = document.createElement("img");
+        user_elem.setAttribute("width", "100%");
+        user_elem.setAttribute("alt", "user choice img");
+
+        var computer_elem = document.createElement("img");
+        computer_elem.setAttribute("width", "100%");
+        computer_elem.setAttribute("alt", "computer choice img");
+
+        var result_elem = document.createElement("img");
+        result_elem.setAttribute("width", "100%");
+        result_elem.setAttribute("alt", "result img");
+
+        if (!userChoice) {
+            // User choice was undefined
+            document.getElementById('player_choice').innerText = `Player, you cheated! Refresh this screen and fight like a man.`;
+
+        } else {
+            // Display user choice
+            document.getElementById('player_choice').innerText = `Player: ${userChoice}`;
+            if (userChoice.trim() == 'rock') {
+                user_url = "https://cdn0.iconfinder.com/data/icons/rock-paper-scissors-emoji/792/rock-paper-scissors-emoji-cartoon-016-512.png"
+            }
+            else if (userChoice.trim() == 'paper') {
+                user_url = "https://pngimage.net/wp-content/uploads/2018/06/paper-cartoon-png-3.png"
+            }
+            else {
+                user_url = "https://www.wpclipart.com/education/supplies/scissors/round-tip_scissors_red.png"
+            }
+
+            user_elem.setAttribute("src", user_url);
+            document.getElementById("player_choice").className = "text-center";
+
+            document.getElementById("player_choice").appendChild(user_elem);
+            user_elem.id = "user_url"
+            document.getElementById("user_url").className = "img-fluid";
+
+        }
+
+
+        // Computer choice
+        var computerChoice = Math.random();
+        if (computerChoice < 0.34) {
+            computerChoice = "rock";
+            computer_url = "https://cdn0.iconfinder.com/data/icons/rock-paper-scissors-emoji/792/rock-paper-scissors-emoji-cartoon-016-512.png"
+
+        } else if (computerChoice <= 0.67) {
+            computerChoice = "paper";
+            computer_url = "https://pngimage.net/wp-content/uploads/2018/06/paper-cartoon-png-3.png"
+
+        } else {
+            computerChoice = "scissors";
+            computer_url = "https://www.wpclipart.com/education/supplies/scissors/round-tip_scissors_red.png"
+
+        }
+
+        // Display computer choice
+        document.getElementById('computer_choice').innerText = `Computer:  ${computerChoice}`;
+        document.getElementById("computer_choice").className = "text-center";
+
+        // console.log(computerChoice);
+        computer_elem.setAttribute("src", computer_url);
+        document.getElementById("computer_choice").appendChild(computer_elem);
+        computer_elem.id = "computer_url"
+        document.getElementById("computer_url").className = "img-fluid";
+
+
+
+
+
+        // Run the compare function
+        var a = userChoice.trim();
+        var b = computerChoice.trim();
+        var result = compare(a, b);
+
+
+
+
+
+        win_url = "https://image.freepik.com/free-vector/you-win-sign-pop-art-style_175838-498.jpg";
+        tie_url = "https://cdn.clipart.email/066e8356ab66bb4dfae7e02363e6c292_bow-tie-clipart-at-getdrawingscom-free-for-personal-use-bow-tie-_600-600.jpeg";
+        lose_url = "https://thebenefitsourcellc.com/wp-content/uploads/2018/02/Screen-Shot-2018-02-20-at-4.17.38-PM.png"
+
+        // Display results
+        console.log(result);
+
+        if (result.trim() == "It's a tie!") {
+            result_url = tie_url;
+
+        }
+        else if (result.trim() == "You win!") {
+            result_url = win_url;
+            user_counter += 1;
+        }
+        else {
+            result_url = lose_url;
+            computer_counter += 1;
+        }
+
+
+        document.getElementById('result').innerText = `${result}`;
+        document.getElementById("result").className = "text-center";
+        result_elem.setAttribute("src", result_url);
+        document.getElementById("result").appendChild(result_elem);
+        result_elem.id = "result_url"
+        document.getElementById("result_url").className = "img-fluid";
+        console.log(user_counter, computer_counter);
+
+
+        return;
+
+
+    });
