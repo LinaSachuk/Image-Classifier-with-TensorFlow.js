@@ -234,10 +234,14 @@ document.getElementById('play').addEventListener('click',
         else if (result.trim() == "You win!") {
             result_url = win_url;
             user_counter += 1;
+            $(".user-bar").css("width", (user_counter * 10) + "%").text((user_counter * 10) + " %");
+
         }
         else {
             result_url = lose_url;
             computer_counter += 1;
+            $(".computer-bar").css("width", (computer_counter * 10) + "%").text((computer_counter * 10) + " %");
+
         }
 
 
@@ -256,8 +260,36 @@ document.getElementById('play').addEventListener('click',
 
 
 
-        $(".user-bar").css("width", (user_counter * 10) + "%").text((user_counter * 10) + " %");
-        $(".computer-bar").css("width", (computer_counter * 10) + "%").text((computer_counter * 10) + " %");
+
+
+        if (user_counter > 9) {
+            alert("You won 10 games!");
+            user_counter = 0;
+            computer_counter = 0;
+            $(".user-bar").css("width", (user_counter * 10) + "%").text((user_counter * 10) + " %");
+            $(".computer-bar").css("width", (computer_counter * 10) + "%").text((computer_counter * 10) + " %");
+
+        }
+
+        if (computer_counter > 9) {
+            alert("Computer won 10 games!");
+            user_counter = 0;
+            computer_counter = 0;
+            $(".user-bar").css("width", (user_counter * 10) + "%").text((user_counter * 10) + " %");
+            $(".computer-bar").css("width", (computer_counter * 10) + "%").text((computer_counter * 10) + " %");
+
+        }
+
+        if ((user_counter == 10) &&
+            (computer_counter == 10)) {
+            console.log(user_counter, computer_counter);
+            alert("Tie game!");
+            user_counter = 0;
+            computer_counter = 0;
+            $(".user-bar").css("width", (user_counter * 10) + "%").text((user_counter * 10) + " %");
+            $(".computer-bar").css("width", (computer_counter * 10) + "%").text((computer_counter * 10) + " %");
+
+        }
 
 
 
