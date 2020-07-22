@@ -138,7 +138,6 @@ document.getElementById('play').addEventListener('click',
         if (game_counter == 0) {
             $(".user-bar").css("width", (0) + "%");
             $(".computer-bar").css("width", (0) + "%");
-
         }
 
 
@@ -268,6 +267,7 @@ document.getElementById('play').addEventListener('click',
 
         // Progress bar
         $(".bars").show();
+        $('#game_counter').text("Game count: " + game_counter);
         $('#user_score').text("User won " + user_counter + " times.");
         $('#computer_score').text("Computer won " + computer_counter + " times.");
 
@@ -287,13 +287,12 @@ document.getElementById('play').addEventListener('click',
 
 
 
-        if (user_counter == 10) {
+        if (user_counter == 2) {
 
             alert("You won 10 games!");
             user_counter = 0;
             computer_counter = 0;
             game_counter = 0;
-
 
 
         } else if (computer_counter == 10) {
@@ -314,6 +313,7 @@ document.getElementById('play').addEventListener('click',
             user_counter = 0;
             computer_counter = 0;
             game_counter = 0;
+
 
 
         }
