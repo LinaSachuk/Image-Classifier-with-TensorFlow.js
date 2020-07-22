@@ -1,6 +1,7 @@
 let net;
 var user_counter = 0;
 var computer_counter = 0;
+var game_counter = 0;
 // const app = require('express')();
 
 
@@ -43,6 +44,8 @@ async function app() {
     // from the web camera as Tensor.
     const webcam = await tf.data.webcam(webcamElement);
 
+
+
     // Reads an image from the webcam and associates it with a specific class
     // index.
     const addExample = async classId => {
@@ -60,6 +63,7 @@ async function app() {
         img.dispose();
     };
 
+
     // When clicking a button, add an example for that class.
     document.getElementById('class-rock').addEventListener('click', () => addExample(0));
     document.getElementById('class-paper').addEventListener('click', () => addExample(1));
@@ -67,7 +71,11 @@ async function app() {
 
 
     console.log('training');
+    //  Show add classes buttons
+    $(".add_buttons button").show();
+
     while (true) {
+
         if (classifier.getNumClasses() > 0) {
             const img = await webcam.capture();
             play == false;
@@ -125,6 +133,14 @@ document.getElementById('play').addEventListener('click',
         if (document.getElementById('result_url')) {
             document.getElementById('result_url').remove();
         }
+
+        // clear the progress bar
+        if (game_counter == 0) {
+            $(".user-bar").css("width", (0) + "%");
+            $(".computer-bar").css("width", (0) + "%");
+
+        }
+
 
 
         // rock : https://cdn0.iconfinder.com/data/icons/rock-paper-scissors-emoji/792/rock-paper-scissors-emoji-cartoon-016-512.png
@@ -229,20 +245,33 @@ document.getElementById('play').addEventListener('click',
 
         if (result.trim() == "It's a tie!") {
             result_url = tie_url;
+            game_counter += 1;
 
         }
         else if (result.trim() == "You win!") {
             result_url = win_url;
             user_counter += 1;
+            game_counter += 1;
+            console.log(user_counter)
             $(".user-bar").css("width", (user_counter * 10) + "%");
 
         }
         else {
             result_url = lose_url;
             computer_counter += 1;
+            game_counter += 1;
+
+            console.log(computer_counter)
             $(".computer-bar").css("width", (computer_counter * 10) + "%");
 
         }
+
+        // Progress bar
+        $(".bars").show();
+        $('#user_score').text("User won " + user_counter + " times.");
+        $('#computer_score').text("Computer won " + computer_counter + " times.");
+
+
 
 
         document.getElementById('result').innerText = `${result}`;
@@ -258,45 +287,41 @@ document.getElementById('play').addEventListener('click',
 
 
 
-        if (user_counter > 9) {
+        if (user_counter == 10) {
+
             alert("You won 10 games!");
             user_counter = 0;
             computer_counter = 0;
-            $(".user-bar").css("width", (user_counter * 10) + "%");
-            $(".computer-bar").css("width", (computer_counter * 10) + "%");
+            game_counter = 0;
 
-        }
 
-        if (computer_counter > 9) {
+
+        } else if (computer_counter == 10) {
+
             alert("Computer won 10 games!");
             user_counter = 0;
             computer_counter = 0;
-            $(".user-bar").css("width", (user_counter * 10) + "%");
-            $(".computer-bar").css("width", (computer_counter * 10) + "%");
+            game_counter = 0;
+
 
         }
 
         if ((user_counter == 10) &&
             (computer_counter == 10)) {
             console.log(user_counter, computer_counter);
+
             alert("Tie game!");
             user_counter = 0;
             computer_counter = 0;
-            $(".user-bar").css("width", (user_counter * 10) + "%");
-            $(".computer-bar").css("width", (computer_counter * 10) + "%");
+            game_counter = 0;
+
 
         }
 
-        // Progress bar
-
-        $(".bars").show();
-        $('#user_score').text("User won " + user_counter + " times.");
-        $('#computer_score').text("Computer won " + computer_counter + " times.");
 
 
 
-
-
+        console.log("game counter: " + game_counter)
 
         return;
 
