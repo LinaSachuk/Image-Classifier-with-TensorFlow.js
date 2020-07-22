@@ -250,6 +250,18 @@ document.getElementById('play').addEventListener('click',
         console.log(user_counter, computer_counter);
 
 
+        // Progress bar
+
+        $(".bars").show();
+
+
+
+        $(".user-bar").css("width", (user_counter * 10) + "%").text((user_counter * 10) + " %");
+        $(".computer-bar").css("width", (computer_counter * 10) + "%").text((computer_counter * 10) + " %");
+
+
+
+
         return;
 
 

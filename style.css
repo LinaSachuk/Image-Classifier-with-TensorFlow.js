@@ -58,6 +58,10 @@ html {
 }
 
 .choice {
-  margin: 25% 0;
+  margin: 18% 0 10% 0;
   background-color: white;
+}
+
+.bars {
+  display: none;
 }
