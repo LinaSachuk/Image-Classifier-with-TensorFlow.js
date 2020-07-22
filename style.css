@@ -27,6 +27,7 @@ html {
 
 .add_buttons button {
   margin: 1em 0;
+  display: none;
 }
 
 .main {

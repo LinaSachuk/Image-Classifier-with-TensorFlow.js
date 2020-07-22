@@ -234,13 +234,13 @@ document.getElementById('play').addEventListener('click',
         else if (result.trim() == "You win!") {
             result_url = win_url;
             user_counter += 1;
-            $(".user-bar").css("width", (user_counter * 10) + "%").text((user_counter * 10) + " %");
+            $(".user-bar").css("width", (user_counter * 10) + "%");
 
         }
         else {
             result_url = lose_url;
             computer_counter += 1;
-            $(".computer-bar").css("width", (computer_counter * 10) + "%").text((computer_counter * 10) + " %");
+            $(".computer-bar").css("width", (computer_counter * 10) + "%");
 
         }
 
@@ -254,10 +254,6 @@ document.getElementById('play').addEventListener('click',
         console.log(user_counter, computer_counter);
 
 
-        // Progress bar
-
-        $(".bars").show();
-
 
 
 
@@ -266,8 +262,8 @@ document.getElementById('play').addEventListener('click',
             alert("You won 10 games!");
             user_counter = 0;
             computer_counter = 0;
-            $(".user-bar").css("width", (user_counter * 10) + "%").text((user_counter * 10) + " %");
-            $(".computer-bar").css("width", (computer_counter * 10) + "%").text((computer_counter * 10) + " %");
+            $(".user-bar").css("width", (user_counter * 10) + "%");
+            $(".computer-bar").css("width", (computer_counter * 10) + "%");
 
         }
 
@@ -275,8 +271,8 @@ document.getElementById('play').addEventListener('click',
             alert("Computer won 10 games!");
             user_counter = 0;
             computer_counter = 0;
-            $(".user-bar").css("width", (user_counter * 10) + "%").text((user_counter * 10) + " %");
-            $(".computer-bar").css("width", (computer_counter * 10) + "%").text((computer_counter * 10) + " %");
+            $(".user-bar").css("width", (user_counter * 10) + "%");
+            $(".computer-bar").css("width", (computer_counter * 10) + "%");
 
         }
 
@@ -286,10 +282,18 @@ document.getElementById('play').addEventListener('click',
             alert("Tie game!");
             user_counter = 0;
             computer_counter = 0;
-            $(".user-bar").css("width", (user_counter * 10) + "%").text((user_counter * 10) + " %");
-            $(".computer-bar").css("width", (computer_counter * 10) + "%").text((computer_counter * 10) + " %");
+            $(".user-bar").css("width", (user_counter * 10) + "%");
+            $(".computer-bar").css("width", (computer_counter * 10) + "%");
 
         }
+
+        // Progress bar
+
+        $(".bars").show();
+        $('#user_score').text("User won " + user_counter + " times.");
+        $('#computer_score').text("Computer won " + computer_counter + " times.");
+
+
 
 
 
