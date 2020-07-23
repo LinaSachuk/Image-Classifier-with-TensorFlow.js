@@ -147,7 +147,8 @@
 		</p> 
 			<p>For example, copy this URL 
 			<!-- Target -->
-			<input id="url_to_copy" value="https://upload.wikimedia.org/wikipedia/commons/4/49/Koala_climbing_tree.jpg">
+			<!-- value="https://upload.wikimedia.org/wikipedia/commons/4/49/Koala_climbing_tree.jpg" -->
+			<input id="url_to_copy" value="https://images.robertharding.com/preview/RM/RH/HORIZONTAL/832-371139.jpg">
 			<!-- Trigger -->
 			<button id= "clipboard" class="clipboard btn" data-clipboard-target="#url_to_copy">
 				<img src="https://clipboardjs.com/assets/images/clippy.svg"  id= "clipboard_logo" alt="Copy to clipboard">
@@ -161,7 +162,7 @@
 			<div class="col-sm-8"><!--  Make sure CORS settings allow reading the image! -->
 				<img id="img"
 				 class="img-fluid"
-				 crossorigin = "anonymous"></img>
+				 crossorigin = "*"></img>
 				<h4 id="prediction"></h4>
 				
 				<div class="form">
