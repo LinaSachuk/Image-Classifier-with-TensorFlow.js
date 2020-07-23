@@ -1,6 +1,6 @@
 # Machine Learning and Gaming with TensorFlow.js
 
-![Screenshot](Screenshots/1.png
+![Screenshot](Screenshots/1.png)
 
 1. TensorFlow.js
 
@@ -13,7 +13,7 @@ Thank you : https://github.com/tensorflow/tfjs-models/tree/master/mobilenet
 Let's first take a look at an off-the-shelf MobileNet, a model that is trained on ImageNet a dataset of millions of images with labels for 1000 different classes of objects, like dogs, cats, and fruits.
 
 The pre-trained models we provide are trained to recognize 1000 classes of image. For a full list of classes, see the labels file in the model zip.
-![Screenshot](Screenshots/2.png
+![Screenshot](Screenshots/2.png)
 
 3. Transfer learning
    This technique starts with an already trained model and specializes it for the task at hand. This lets you train far more quickly and with less data than if you were to train from scratch.
@@ -26,7 +26,7 @@ The retraining is so effective that we don't have to have to do anything fancy l
 
 By bootstrapping our model with MobileNet and using kk nearest neighbors, we can train a realistic classifier in a short amount of time, with very little data, all in the browser. Doing this fully end-to-end, from pixels to prediction, would require too much time and data for an interactive application.
 
-![Screenshot](Screenshots/3.png
+![Screenshot](Screenshots/3.png)
 
 Thank you : https://codelabs.developers.google.com/codelabs/tensorflowjs-teachablemachine-codelab/index.html#2
 
