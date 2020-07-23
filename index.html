@@ -56,7 +56,7 @@
 			<div class="navbar-nav">
 			  <a class="nav-item nav-link" href="#home">Home</a>
 			  <a class="nav-item nav-link" href="#image">Image Classifier</a>
-			  <a class="nav-item nav-link" href="#tableau">Play Game</a>
+			  <a class="nav-item nav-link" href="#game">Play Game</a>
 			  <a class="nav-item nav-link" href="#contact">Contact</a>
 			</div>
 		  </div>
@@ -64,7 +64,7 @@
 	  </header>
 	  
 
-    <div class="container main">
+    <div id="home" class="container main">
       <!-- <nav class="navbar navbar-expand-sm bg-light navbar-light fixed-top">
         <!-- Brand/logo -->
         <!-- <a class="navbar-brand" href="#">
@@ -146,7 +146,7 @@
       </div>
 
       <!-- recognize image -->
-        <div class="recognize_image container-fluid">
+        <div id="image"    class="recognize_image container-fluid">
           <h2 class="text-center">Image Classifier with MobileNet</h2>
           <p>
             This TensorFlow.js model does not require you to know about machine
@@ -201,7 +201,7 @@
 
 
 	<!-- Train your model -->
-	<div class="train_model container-fluid">
+	<div id="game"   class="train_model container-fluid">
 		<canvas id="my-canvas"></canvas>
 		<h2 class="text-center">Transfer Learning Technique</h2>
 		<p>
@@ -295,24 +295,24 @@
 
   <!-- Footer Elements -->
   <div id="contact" class="container text-center p-3">
-    <a href='mailto:sachuklina@gmail.com'><i class="fa fa-envelope fa-3x "></i></a>
-    <a href='https://github.com/LinaSachuk'><i class="fa fa-github fa-3x "></i></a>
-    <a href='https://www.linkedin.com/in/lina-sachuk-346938103/'><i class="fa fa-linkedin fa-3x"></i></i></a>
+    <a href='mailto:sachuklina@gmail.com' ><i class="fa fa-envelope fa-4x "></i></a>
+    <a href='https://github.com/LinaSachuk' target="_blank"><i class="fa fa-github fa-4x "></i></a>
+    <a href='https://www.linkedin.com/in/lina-sachuk-346938103/' target="_blank"><i class="fa fa-linkedin fa-4x"></i></i></a>
   
   </div>
  
 </footer>
-<!-- Footer -->
+
 
       
 
       
 
 
-      <!-- Load main.js and index.js after the content of the page  -->
-      <script src="main.js"></script>
-      <script src="index.js"></script>
-      <script src="game.js"></script>
+	<!-- Load main.js and index.js after the content of the page  -->
+	<script src="main.js"></script>
+	<script src="index.js"></script>
+	<script src="game.js"></script>
 	
 
     
