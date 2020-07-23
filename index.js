@@ -33,7 +33,7 @@ clipboard.on('error', function (e) {
 const webcamElement = document.getElementById('webcam');
 const classifier = knnClassifier.create();
 
-async function app() {
+async function app1() {
     console.log('Loading mobilenet..');
 
     // Load the model.
@@ -109,7 +109,7 @@ async function app() {
 document.getElementById('train').addEventListener('click',
     function () {
 
-        app();
+        app1();
     }
 );
 

@@ -12,8 +12,10 @@ const result = document.getElementById('prediction');
 let model;
 
 button.onclick = () => {
-    const url = input.value;
+    // fixing CORS error
+    const url = "https://cors-anywhere.herokuapp.com/" + input.value;
     img.src = url;
+    img.crossOrigin = "Anonymous";
     result.innerText = "Loading..."
 }
 
