@@ -287,7 +287,7 @@ document.getElementById('play').addEventListener('click',
 
 
 
-        if (user_counter == 2) {
+        if (user_counter == 10) {
 
             alert("You won 10 games!");
             user_counter = 0;

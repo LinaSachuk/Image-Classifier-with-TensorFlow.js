@@ -4,6 +4,11 @@ html {
   padding: 0;
 }
 
+/* navigation */
+.navbar {
+  background-color: rgba(105, 127, 164, 0.8) !important;
+}
+
 .content {
   text-align: center;
 }
@@ -31,7 +36,7 @@ html {
 }
 
 .main {
-  margin-top: 5em;
+  margin-top: 3em;
 }
 
 .container-fluid {
@@ -76,4 +81,14 @@ html {
   width: 1%;
   height: 30px;
   background-color: green;
+}
+
+/* Footer */
+
+.fa {
+  color: rgba(105, 127, 164, 0.6);
+}
+
+.fa:hover {
+  color: rgba(105, 127, 164, 0.8);
 }
