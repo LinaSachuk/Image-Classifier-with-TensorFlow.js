@@ -13,8 +13,9 @@ Thank you : https://github.com/tensorflow/tfjs-models/tree/master/mobilenet
 2. MobileNet
 
 Let's first take a look at an off-the-shelf MobileNet, a model that is trained on ImageNet a dataset of millions of images with labels for 1000 different classes of objects, like dogs, cats, and fruits.
+![Screenshot](Screenshots/4.png)
 
-The pre-trained models we provide are trained to recognize 1000 classes of image. For a full list of classes, see the labels file in the model zip.
+The pre-trained models we provide are trained to recognize 1000 classes of image. For a full list of classes, see the labels_mobilenet_quant_v1_224.html file.
 ![Screenshot](Screenshots/2.png)
 
 3. Transfer learning
@@ -22,7 +23,8 @@ The pre-trained models we provide are trained to recognize 1000 classes of image
 
 You can use a technique known as transfer learning to re-train a model to recognize classes not in the original set. For example, you could re-train the model to distinguish between different species of tree, despite there being no trees in the original training data. To do this, you will need a set of training images for each of the new labels you wish to train.
 
-In this case, we'll bootstrap our model from a pre-trained model called MobileNet. Our system will learn to make predictions using our own classes that were never seen by MobileNet.
+In this case, we'll bootstrap our model from a pre-trained model called MobileNet. Our system will learn to make predictions using our own classes that were never seen by MobileNet. For example, Rock, Paper and Siccors classes.
+![Screenshot](Screenshots/5.png)
 
 The retraining is so effective that we don't have to have to do anything fancy like train another neural network, but instead we just use a nearest neighbors approach. What we do is feed an image through MobileNet and find other examples in the dataset that have similar activations to this image. In practice, this is noisy, so instead we choose the kk nearest neighbors and choose the class with the most representation.
 
