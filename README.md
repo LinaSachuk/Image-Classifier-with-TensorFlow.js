@@ -1,5 +1,7 @@
 # Machine Learning and Gaming with TensorFlow.js
 
+Machine Learning and Games project implements idea of how we can use ML in gaming and education. It has an image classifier model to recognize images of 1000 classes. Second model can learn from user and will be used to play against computer Rock Paper Scissors game.
+
 ![Screenshot](Screenshots/1.png)
 
 1. TensorFlow.js
